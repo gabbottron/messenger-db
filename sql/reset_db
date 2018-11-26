@@ -1,0 +1,5 @@
+#!/bin/bash
+
+psql -h 127.0.0.1 -p 5439 -U msgr -f drop_all_tables.sql
+psql -h 127.0.0.1 -p 5439 -U msgr -f init_db.sql
+psql -h 127.0.0.1 -p 5439 -U msgr -f fixtures.sql

@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  db:
+    container_name: msgr-db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - msgr_net
+    ports:
+      - '5439:5432'
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+
+networks:
+  msgr_net:
+    name: msgr_net
+
+volumes:
+  pgdata:

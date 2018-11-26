@@ -1,0 +1,1 @@
+DROP TABLE msgr.msgr_user CASCADE;
