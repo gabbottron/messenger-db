@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   db:
-    container_name: msgr-db
+    container_name: ${PROJECT_NAME}-db
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - msgr_net
+      - project_net
     ports:
       - '5439:5432'
     environment:
@@ -19,8 +19,8 @@ services:
       - POSTGRES_DB
 
 networks:
-  msgr_net:
-    name: msgr_net
+  project_net:
+    name: ${PROJECT_NAME}_net
 
 volumes:
   pgdata:
